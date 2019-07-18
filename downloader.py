@@ -160,7 +160,7 @@ def doDownload(manifest):
                         auth_cookie = cookie_list[1]
              projectResponse.url = redirect.url
 
-        fileResponse = sess.get("%s/files/%s/download" % (projectResponse.url, dependency['fileID']), stream=True)
+        fileResponse = sess.get("%s/download/%s/file" % (projectResponse.url, dependency['fileID']), stream=True)
         while fileResponse.is_redirect:
             source = fileResponse
             fileResponse = sess.get(source, stream=True)
